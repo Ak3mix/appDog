@@ -1,6 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
 import { petService } from '../services/PetService';
-import { databaseService } from '../services/DatabaseService';
 
 vi.mock('../services/DatabaseService', () => ({
   databaseService: {

@@ -17,9 +17,10 @@ export class ExportService {
     
     // Guardar el PDF en el filesystem
     const fileName = `Reporte_${mascota.nombre}_${Date.now()}.pdf`;
+    const base64Pdf = btoa(String.fromCharCode(...new Uint8Array(pdfBytes)));
     await Filesystem.writeFile({
       path: `PetHealth/PDF/${fileName}`,
-      data: Buffer.from(pdfBytes).toString('base64'),
+      data: base64Pdf,
       directory: Directory.Documents,
       recursive: true
     });

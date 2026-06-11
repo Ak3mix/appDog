@@ -1,5 +1,5 @@
 import { useForm, Controller } from 'react-hook-form';
-import { Typography, TextField, Button, Box, CircularProgress } from '@mui/material';
+import { TextField, Button, Box, CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { petService } from '../services/PetService';
 import { zodResolver } from '@hookform/resolvers/zod';

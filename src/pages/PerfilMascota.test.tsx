@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import PerfilMascota from './PerfilMascota';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { petService } from '../services/PetService';
-import { medicalEventService } from '../services/MedicalEventService';
 
 // Mock de servicios
 vi.mock('../services/PetService', () => ({

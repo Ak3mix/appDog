@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Fab, ListItemSecondaryAction, Tooltip } from '@mui/material';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Fab, ListItemSecondaryAction, Tooltip, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
 import { useNavigate } from 'react-router-dom';
 import { petService } from '../services/PetService';
 import { Pet } from '../types/db.types';
 import Layout from '../components/Layout';
-import { useEffect, useState } from 'react';
 
 const ListaMascotas = () => {
   const [mascotas, setMascotas] = useState<Pet[]>([]);
