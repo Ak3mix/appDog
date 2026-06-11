@@ -1,0 +1,38 @@
+name: Android Release
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Generate Native Assets
+        run: |
+          npm install -D @capacitor/assets
+          npx capacitor-assets generate --silent
+      - name: Capacitor Sync
+        run: npx cap sync android
+      - name: Build Android Release
+        run: |
+          cd android
+          ./gradlew assembleRelease
