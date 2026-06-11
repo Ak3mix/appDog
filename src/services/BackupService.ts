@@ -20,8 +20,8 @@ export class BackupService {
   async restoreBackup(jsonContent: string) {
     const db = await databaseService.getDb();
     
-    // Importar datos desde el JSON
-    await db.importFromJson(jsonContent);
+    // Usar el método correcto para importar basado en la API de Capacitor SQLite
+    await db.importFromJson(JSON.parse(jsonContent));
   }
 }
 
