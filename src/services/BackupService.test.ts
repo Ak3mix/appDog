@@ -1,4 +1,4 @@
-import { describe, it, vi } from 'vitest';
+import { describe, it } from 'vitest';
 import { backupService } from '../services/BackupService';
 
 describe('BackupService', () => {
