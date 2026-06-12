@@ -5,7 +5,9 @@ import { databaseService } from '../services/DatabaseService';
 vi.mock('../services/DatabaseService', () => ({
   databaseService: {
     getDb: vi.fn().mockResolvedValue({
-      query: vi.fn().mockResolvedValue({ values: [{ id: 1, tipo: 'vacuna', detalle: 'Rabia', fecha: '2024-01-01' }] }),
+      query: vi.fn().mockResolvedValue({ 
+        values: [{ id: 1, tipo: 'vacuna', detalle: JSON.stringify({ nota: 'Rabia' }), fecha: '2024-01-01' }] 
+      }),
       run: vi.fn().mockResolvedValue({ changes: { lastId: 1 } }),
     }),
   },
