@@ -22,6 +22,6 @@ describe('MedicalEventService', () => {
   it('should get events for a pet', async () => {
     const events = await medicalEventService.getAll(1);
     expect(events).toHaveLength(1);
-    expect(events[0].detalle).toBe('Rabia');
+    expect(events[0].detalle).toEqual({ nota: 'Rabia' });
   });
 });
