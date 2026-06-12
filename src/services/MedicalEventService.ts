@@ -1,10 +1,10 @@
 import { databaseService } from './DatabaseService';
 
 export class MedicalEventService {
-  async add(mascota_id: number, tipo: string, detalle: string, fecha: string) {
+  async add(mascota_id: number, tipo: string, detalle: object, fecha: string) {
     const db = await databaseService.getDb();
     await db.run('INSERT INTO eventos_medicos (mascota_id, tipo, detalle, fecha, sync_status) VALUES (?,?,?,?,?)', 
-      [mascota_id, tipo, detalle, fecha, 'pending']);
+      [mascota_id, tipo, JSON.stringify(detalle), fecha, 'pending']);
   }
 
   async getAll(mascota_id: number, tipo?: string) {
@@ -16,7 +16,11 @@ export class MedicalEventService {
       params.push(tipo);
     }
     const res = await db.query(query, params);
-    return res.values || [];
+    
+    return (res.values as any[] || []).map(event => ({
+        ...event,
+        detalle: typeof event.detalle === 'string' ? JSON.parse(event.detalle) : event.detalle
+    }));
   }
 }
 

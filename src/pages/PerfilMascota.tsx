@@ -50,13 +50,14 @@ const PerfilMascota = () => {
             <List>
             {eventos.map((ev) => (
                 <ListItem key={ev.id}>
-                <ListItemText primary={ev.detalle} secondary={`${ev.tipo} - ${ev.fecha}`} />
+                <ListItemText primary={ev.detalle.nota || ev.detalle} secondary={`${ev.tipo} - ${ev.fecha}`} />
                 </ListItem>
             ))}
             </List>
         )}
       </Box>
 
+      <Button variant="contained" onClick={() => navigate(`/mascota/${id}/nuevo-evento`)} sx={{ mt: 2, mr: 1 }}>Añadir Evento</Button>
       <Button variant="outlined" onClick={() => navigate('/mascotas')} sx={{ mt: 2 }}>Volver</Button>
     </Layout>
   );
