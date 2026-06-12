@@ -13,7 +13,7 @@ vi.mock('../services/DatabaseService', () => ({
 
 describe('MedicalEventService', () => {
   it('should add a medical event', async () => {
-    await medicalEventService.add(1, 'vacuna', 'Rabia', '2024-01-01');
+    await medicalEventService.add(1, 'vacuna', { nota: 'Rabia' }, '2024-01-01');
     expect(databaseService.getDb).toHaveBeenCalled();
   });
 
