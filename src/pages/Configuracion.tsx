@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Typography, List, ListItem, ListItemText, ListItemIcon, Switch, Divider, Button, Box } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { List, ListItem, ListItemText, ListItemIcon, Switch, Divider, Button } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import LanguageIcon from '@mui/icons-material/Language';
 import BackupIcon from '@mui/icons-material/Backup';
